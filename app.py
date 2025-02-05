@@ -17,7 +17,8 @@ from langchain_openai import OpenAIEmbeddings
 
 # Index Name
 index_name = "earning-calls-euclidean"
-
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI"]['OPENAI_KEY ']
+os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY ']
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 @st.cache_resource
