@@ -1,0 +1,11 @@
+.streamlit
+data
+cli.py
+.env
+data.db
+test.ipynb
+scripts/__pycache__
+langkit/__pycache__
+test_app.ipynb
+results_gpt_4_chunks.csv
+results_gpt_4_chunks_multiquery.csv

@@ -1,0 +1,25 @@
+define bot refuse to respond_input
+  "Input Rail: I'm Sorry, I can't respond to that"
+
+define flow self check input
+  $allowed = execute self_check_input
+
+  if not $allowed
+    if $config.enable_rails_exceptions
+      create event InputRailException(message="Input not allowed. This input was blocked by the 'self check input' flow.")
+    else 
+      bot refuse to respond_input
+    stop
+
+define bot refuse to respond_output
+  "Output Rail: I'm Sorry, I can't respond to that"
+
+define flow self check output
+  $allowed = execute self_check_output
+
+  if not $allowed
+    if $config.enable_rails_exceptions
+      create event OutputRailException(message="Outputt not allowed. This output was blocked by the 'self check output' flow.")
+    else 
+      bot refuse to respond_output
+    stop
